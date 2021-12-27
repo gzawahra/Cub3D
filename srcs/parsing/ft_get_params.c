@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:51:39 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:51:40 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:36:24 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:36:25 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-int		ft_is_map(const char *line)
+int	ft_is_map(const char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
@@ -33,7 +33,7 @@ void	ft_get_map(t_params *par, const char *line)
 	char	*tmp;
 
 	tmp = ft_strdup(line);
-	ft_lstadd_back(&(par->map), (void*)tmp);
+	ft_lstadd_back(&(par->map), (void *)tmp);
 	par->m_size++;
 }
 
@@ -45,7 +45,8 @@ char	**ft_map_tab(t_params *par)
 
 	i = 0;
 	tmp = par->map;
-	if (!(map_tab = (char**)malloc(sizeof(char*) * (par->m_size + 1))))
+	map_tab = (char **)malloc(sizeof(char *) * (par->m_size + 1));
+	if (!map_tab)
 		return (NULL);
 	while (par && tmp)
 	{
@@ -78,7 +79,7 @@ void	ft_settings(t_params *par, char *line)
 	else if (ft_is_map(line) == 1)
 		par->map_start = 1;
 	else if (ft_is_valid_char("RNSWECF ", line[0]) == ERROR)
-		ft_quit("Mauvais char.\n", par);
+		ft_quit("Bad char. \n", par);
 }
 
 void	ft_get_params(t_params *par, const char *filepath)
@@ -103,8 +104,8 @@ void	ft_get_params(t_params *par, const char *filepath)
 	free(par->line);
 	par->line = NULL;
 	if (par->fl_color == NULL)
-		ft_quit("Mauvais setup du plafond\n", par);
+		ft_quit("Bad ceiling definition. \n", par);
 	if (par->map_start == 0 || ft_is_valid_map(par) == ERROR)
-		ft_quit("Map non valide\n", par);
+		ft_quit("Map not valid. \n", par);
 	close(fd);
 }

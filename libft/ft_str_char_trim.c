@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:50:18 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:50:20 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 02:08:18 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:08:18 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ char	*ft_str_char_trim(char const *s, char c)
 	while (s[i++])
 		if (s[i] != c)
 			j++;
-	if (!(trim = (char*)malloc(sizeof(char) * (j + 1))))
+	trim = (char *)malloc(sizeof(char) * (j + 1));
+	if (!trim)
 		return (trim);
 	trim[j] = 0;
 	i = 0;

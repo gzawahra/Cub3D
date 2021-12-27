@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:51:12 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:51:14 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:35:50 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:37:05 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-int		ft_close(t_params *par)
+int	ft_close(t_params *par)
 {
 	ft_quit(NULL, par);
 	return (0);
 }
 
-int		key_press(int key_code, t_params *par)
+int	key_press(int key_code, t_params *par)
 {
 	if (key_code == KEY_W)
 		par->key->w = 1;
@@ -37,7 +37,7 @@ int		key_press(int key_code, t_params *par)
 	return (0);
 }
 
-int		key_rel(int key_code, t_params *par)
+int	key_rel(int key_code, t_params *par)
 {
 	if (key_code == KEY_W)
 		par->key->w = 0;

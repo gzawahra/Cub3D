@@ -5,13 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:52:57 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:52:58 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:38:23 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:38:24 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
+/*
+initialize ray parameters.
+*/
 void	ft_ray_par_init(int wind_part, t_params *par, t_ray *ray)
 {
 	ray->cam_posx = 2 * wind_part / (double)par->res_w - 1;
@@ -35,6 +38,9 @@ void	ft_ray_par_init(int wind_part, t_params *par, t_ray *ray)
 	ft_step(ray);
 }
 
+/*
+increment ray
+*/
 void	ft_ray_inc(t_params *par, t_ray *ray)
 {
 	ray->hit = 0;
@@ -63,6 +69,9 @@ void	ft_ray_inc(t_params *par, t_ray *ray)
 	}
 }
 
+/*
+get ray texture collision
+*/
 void	ft_ray_text(t_params *par, t_ray *ray, int x)
 {
 	int		i;
@@ -70,7 +79,7 @@ void	ft_ray_text(t_params *par, t_ray *ray, int x)
 	double	step;
 	double	texpos;
 
-	tex = wich_text(ray->side, par);
+	tex = which_text(ray->side, par);
 	ray->tex_x = (int)(ray->wall_x * (double)(tex->w));
 	if ((ray->side == NO || ray->side == SO) && ray->ray_dir_x > 0)
 		ray->tex_x = tex->w - ray->tex_x - 1;
@@ -88,6 +97,9 @@ void	ft_ray_text(t_params *par, t_ray *ray, int x)
 	ray->zbuffer[x] = ray->wall_dist;
 }
 
+/*
+get and calculate ray data
+*/
 void	ft_ray_data(t_ray *ray, t_params *par)
 {
 	get_wall_dist(ray);
@@ -105,6 +117,9 @@ void	ft_ray_data(t_ray *ray, t_params *par)
 	ray->wall_x -= floor(ray->wall_x);
 }
 
+/*
+cast all width column lignes
+*/
 void	cast_scene(t_params *par, t_ray *ray)
 {
 	int		i;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:49:11 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:49:14 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 02:09:26 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:10:17 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	**list_to_array(t_list *lst, int size)
 	i = 0;
 	if (lst == NULL)
 		return (NULL);
-	array = (char**)malloc(sizeof(char*) * size + 1);
+	array = (char **)malloc(sizeof(char *) * size + 1);
 	temp = lst;
 	while (temp)
 	{

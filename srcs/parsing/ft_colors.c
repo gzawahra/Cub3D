@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:51:33 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:51:34 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:36:17 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:36:18 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-int		ft_chr_char(char *str)
+int	ft_chr_char(char *str)
 {
 	int		i;
 	int		count;
@@ -34,13 +34,14 @@ int		ft_chr_char(char *str)
 	return (SUCCESS);
 }
 
-int		*ft_get_color(char *trim)
+int	*ft_get_color(char *trim)
 {
 	int		i;
 	int		*color;
 
 	i = 0;
-	if (!(color = (int*)malloc(sizeof(int) * 3)))
+	color = (int *)malloc(sizeof(int) * 3);
+	if (!color)
 		return (NULL);
 	while (i < 3)
 	{
@@ -67,10 +68,10 @@ void	ft_floor_color(t_params *par, const char *line)
 	char	*trim;
 
 	if (par->fl_color != NULL)
-		ft_quit("la couleur du sol déja initialisé\n", par);
+		ft_quit("Floor color already defined. \n", par);
 	trim = ft_str_char_trim(line, ' ');
 	if (ft_chr_char(trim) == ERROR)
-		ft_quit("Mauvaise couleur du sol", par);
+		ft_quit("Bad floor color. \n", par);
 	par->fl_color = ft_get_color(trim);
 	free(trim);
 }
@@ -80,10 +81,10 @@ void	ft_ceil_color(t_params *par, const char *line)
 	char	*trim;
 
 	if (par->ceil_color != NULL)
-		ft_quit("La couleur du plafond déja initialisé\n", par);
+		ft_quit("Ceiling color already initialised. \n", par);
 	trim = ft_str_char_trim(line, ' ');
 	if (ft_chr_char(trim) == ERROR)
-		ft_quit("Mauvaise couleur du plafond", par);
+		ft_quit("Bad ceiling color. \n", par);
 	par->ceil_color = ft_get_color(trim);
 	free(trim);
 }

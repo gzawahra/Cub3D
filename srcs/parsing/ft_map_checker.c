@@ -5,28 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:52:04 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:52:06 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:36:35 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:36:36 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-int		ft_save_pos(int x, int y, t_params *par)
+int	ft_save_pos(int x, int y, t_params *par)
 {
 	if (par->map_tab[x][y] == '2')
 		ft_get_spr_pos(&par->sprite, x, y);
 	else if (ft_is_valid_char("NSEW", par->map_tab[x][y]) == SUCCESS)
 	{
 		if (par->player_pos != NULL)
-			ft_quit("2 joueur au depart de la map\n", par);
+			ft_quit("2 players defined on map. \n", par);
 		par->player_pos = ft_set_position(x, y, par->map_tab[x][y]);
 		par->map_tab[x][y] = '0';
 	}
 	return (SUCCESS);
 }
 
-int		ft_check_around(int x, int y, char **map)
+int	ft_check_around(int x, int y, char **map)
 {
 	if (map[x][y + 1] == ' ' || map[x][y + 1] == '\0')
 		return (ERROR);
@@ -48,9 +48,9 @@ int		ft_check_around(int x, int y, char **map)
 		return (SUCCESS);
 }
 
-int		ft_firstnlast_line(char *line)
+int	ft_firstnlast_line(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (line[0] == '\0')
@@ -64,10 +64,10 @@ int		ft_firstnlast_line(char *line)
 	return (SUCCESS);
 }
 
-int		ft_firstnlast_char(char *line)
+int	ft_firstnlast_char(char *line)
 {
-	int i;
-	int max;
+	int	i;
+	int	max;
 
 	i = 0;
 	max = ft_strlen(line) - 1;
@@ -82,10 +82,10 @@ int		ft_firstnlast_char(char *line)
 	return (max);
 }
 
-int		ft_check_inbtween(int x, t_params *par)
+int	ft_check_inbtween(int x, t_params *par)
 {
-	int y;
-	int max;
+	int	y;
+	int	max;
 
 	y = 0;
 	max = ft_firstnlast_char(par->map_tab[x]);

@@ -5,18 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:51:45 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:51:47 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:40:27 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:40:28 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-t_position		*ft_set_position(int x, int y, char dir)
+t_position	*ft_set_position(int x, int y, char dir)
 {
 	t_position	*posi;
 
-	if (!(posi = malloc(sizeof(t_position) * 1)))
+	posi = malloc(sizeof(t_position) * 1);
+	if (!posi)
 		return (NULL);
 	posi->x = x;
 	posi->y = y;
@@ -24,11 +25,12 @@ t_position		*ft_set_position(int x, int y, char dir)
 	return (posi);
 }
 
-t_text			*ft_init_text(void)
+t_text	*ft_init_text(void)
 {
 	t_text		*texture;
 
-	if (!(texture = malloc(sizeof(t_text) * 1)))
+	texture = malloc(sizeof(t_text) * 1);
+	if (!texture)
 		return (NULL);
 	texture->path = NULL;
 	texture->w = 0;
@@ -41,11 +43,12 @@ t_text			*ft_init_text(void)
 	return (texture);
 }
 
-t_sprite		*ft_new_spr_pos(int x, int y)
+t_sprite	*ft_new_spr_pos(int x, int y)
 {
 	t_sprite	*new;
 
-	if (!(new = malloc(sizeof(t_sprite))))
+	new = malloc(sizeof(t_sprite));
+	if (!new)
 		return (NULL);
 	new->x = x;
 	new->y = y;
@@ -53,7 +56,7 @@ t_sprite		*ft_new_spr_pos(int x, int y)
 	return (new);
 }
 
-void			ft_get_spr_pos(t_sprite **begin, int x, int y)
+void	ft_get_spr_pos(t_sprite **begin, int x, int y)
 {
 	t_sprite	*tmp;
 
@@ -68,7 +71,7 @@ void			ft_get_spr_pos(t_sprite **begin, int x, int y)
 		*begin = ft_new_spr_pos(x, y);
 }
 
-void			ft_init_params(t_params *par)
+void	ft_init_params(t_params *par)
 {
 	par->res_w = 0;
 	par->res_w = 0;

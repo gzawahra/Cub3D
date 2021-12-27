@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:48:33 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:48:34 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:43:55 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:44:55 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 		return ;
 	if (del)
 	{
-		del((void*)lst->content);
+		del((void *)lst->content);
 		free(lst);
 		lst = NULL;
 	}

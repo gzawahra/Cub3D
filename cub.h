@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:46:51 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:46:54 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:41:44 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:58:11 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # include "./mlx/mlx.h"
 # include "./libft/libft.h"
 
-typedef	struct	s_key
+typedef struct s_key
 {
 	int			w;
 	int			a;
@@ -51,7 +51,7 @@ typedef	struct	s_key
 	int			esc;
 }				t_key;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void		*img_id;
 	char		*addr;
@@ -60,7 +60,7 @@ typedef struct	s_img
 	int			endian;
 }				t_img;
 
-typedef struct	s_ray
+typedef struct s_ray
 {
 	double		cam_posx;
 	double		ray_dir_y;
@@ -93,21 +93,21 @@ typedef struct	s_ray
 	double		*zbuffer;
 }				t_ray;
 
-typedef struct	s_position
+typedef struct s_position
 {
 	int		x;
 	int		y;
 	char	dir;
 }				t_position;
 
-typedef struct	s_sprite
+typedef struct s_sprite
 {
 	int					x;
 	int					y;
 	struct s_sprite		*next;
 }				t_sprite;
 
-typedef struct	s_text
+typedef struct s_text
 {
 	char	*path;
 	int		w;
@@ -119,7 +119,7 @@ typedef struct	s_text
 	int		endian;
 }				t_text;
 
-typedef struct	s_ps
+typedef struct s_ps
 {
 	double		sprite_x;
 	double		sprite_y;
@@ -138,7 +138,7 @@ typedef struct	s_ps
 	int			color;
 }				t_ps;
 
-typedef struct	s_params
+typedef struct s_params
 {
 	int			res_w;
 	int			res_h;
@@ -216,16 +216,15 @@ int				key_rel(int key_code, t_params *par);
 int				ft_movement(t_params *par);
 int				save_bmp(t_params *par);
 void			ft_raycast_handle(t_params *par);
-void			ft_screenshot(t_params *par);
 int				ft_get_pixel(t_text *f, int x, int y);
 void			sort_sprites(t_sprite *lst, t_params *par);
 void			draw_sprites(t_sprite *sprite, t_params *par,
-				t_ray *ray, t_ps *ps);
+					t_ray *ray, t_ps *ps);
 void			ft_cast_flcl(t_params *par);
 int				ft_close(t_params *par);
 void			ft_step(t_ray *ray);
 void			get_wall_dist(t_ray *ray);
-t_text			*wich_text(int side, t_params *par);
+t_text			*which_text(int side, t_params *par);
 void			ft_trace_line(t_params *par, int x, int y, int color);
 void			free_sprites(t_sprite *sprite);
 void			free_map(t_params *par);

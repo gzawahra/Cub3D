@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:53:32 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:53:34 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:38:57 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:29:07 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-double		sprite_distance(t_sprite *sprite, t_params *par)
+double	sprite_distance(t_sprite *sprite, t_params *par)
 {
 	double	ret;
 
-	ret = ((par->ray->start_posx - sprite->x) *
-			(par->ray->start_posx - sprite->x) +
-			(par->ray->start_posy - sprite->y) *
-			(par->ray->start_posy - sprite->y));
+	ret = ((par->ray->start_posx - sprite->x) * (
+				par->ray->start_posx - sprite->x) + (
+				par->ray->start_posy - sprite->y) * (
+				par->ray->start_posy - sprite->y));
 	return (ret);
 }
 
-void		sort_sprites(t_sprite *lst, t_params *par)
+void	sort_sprites(t_sprite *lst, t_params *par)
 {
 	t_sprite	*tmp;
 	int			tmpx;
@@ -47,7 +47,7 @@ void		sort_sprites(t_sprite *lst, t_params *par)
 	}
 }
 
-void		sprite_loop(t_params *par, t_ray *ray, t_ps *ps)
+void	sprite_loop(t_params *par, t_ray *ray, t_ps *ps)
 {
 	int			i;
 	int			y;
@@ -56,10 +56,10 @@ void		sprite_loop(t_params *par, t_ray *ray, t_ps *ps)
 	i = ps->drawstart_x;
 	while (i < ps->drawend_x)
 	{
-		ps->tex_x = (int)(256 * (i - (-ps->spritewidth / 2 +
-			ps->spritescreen_x)) * par->sprit_text->w / ps->spritewidth) / 256;
-		if (ps->transform_y > 0 && i > 0 && i < par->res_w &&
-				ps->transform_y < ray->zbuffer[i])
+		ps->tex_x = (int)(256 * (i - (-ps->spritewidth / 2 + ps->spritescreen_x)
+					) * par->sprit_text->w / ps->spritewidth) / 256;
+		if (ps->transform_y > 0 && i > 0 && i < par->res_w
+			&& ps->transform_y < ray->zbuffer[i])
 		{
 			y = ps->drawstart_y;
 			while (y < ps->drawend_y)
@@ -76,7 +76,10 @@ void		sprite_loop(t_params *par, t_ray *ray, t_ps *ps)
 	}
 }
 
-void		draw_limit(t_params *par, t_ps *ps)
+/*
+draw sprites that are on screen edge
+*/
+void	draw_limit(t_params *par, t_ps *ps)
 {
 	ps->drawstart_y = -ps->spriteheight / 2 + par->res_h / 2;
 	if (ps->drawstart_y < 0)
@@ -93,7 +96,7 @@ void		draw_limit(t_params *par, t_ps *ps)
 		ps->drawend_x = par->res_w - 1;
 }
 
-void		draw_sprites(t_sprite *sprite, t_params *par, t_ray *ray, t_ps *ps)
+void	draw_sprites(t_sprite *sprite, t_params *par, t_ray *ray, t_ps *ps)
 {
 	t_sprite	*tmp;
 
@@ -103,12 +106,12 @@ void		draw_sprites(t_sprite *sprite, t_params *par, t_ray *ray, t_ps *ps)
 		ps->sprite_x = tmp->x - ray->start_posx + 0.5;
 		ps->sprite_y = tmp->y - ray->start_posy + 0.5;
 		ps->invdet = 1.0 / (ray->planx * ray->diry - ray->dirx * ray->plany);
-		ps->transform_x = ps->invdet *
-			(ray->diry * ps->sprite_x - ray->dirx * ps->sprite_y);
-		ps->transform_y = ps->invdet *
-			(-ray->plany * ps->sprite_x + ray->planx * ps->sprite_y);
-		ps->spritescreen_x = (int)((par->res_w / 2) *
-				(1 + ps->transform_x / ps->transform_y));
+		ps->transform_x = ps->invdet
+			* (ray->diry * ps->sprite_x - ray->dirx * ps->sprite_y);
+		ps->transform_y = ps->invdet
+			* (-ray->plany * ps->sprite_x + ray->planx * ps->sprite_y);
+		ps->spritescreen_x = (int)((par->res_w / 2)
+				* (1 + ps->transform_x / ps->transform_y));
 		ps->spriteheight = abs((int)(par->res_h / (ps->transform_y)));
 		draw_limit(par, ps);
 		sprite_loop(par, ray, ps);

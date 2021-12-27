@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:48:10 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:48:11 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:44:12 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:47:09 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 	while (lst->next)
 	{
 		lst = lst->next;
-		if (!(tmp->next = ft_lstnew(f(lst->content))))
+		tmp->next = ft_lstnew(f(lst->content));
+		if (!tmp->next)
 		{
 			ft_lstdelone(tmp->next, del);
 			return (NULL);

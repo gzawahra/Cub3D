@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:50:39 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:50:40 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:35:23 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:35:24 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,21 @@ void	ft_dlft_key(t_key *key)
 void	ft_init_gen(t_params *par)
 {
 	ft_init_params(par);
-	if (!(par->ray = malloc(sizeof(t_ray) * 1)))
-		ft_quit("Failed ray struct malloc\n", par);
-	if (!(par->key = malloc(sizeof(t_key) * 1)))
-		ft_quit("Failed key struct malloc\n", par);
-	if (!(par->ps = malloc(sizeof(t_ps) * 1)))
-		ft_quit("Failed ps struct malloc\n", par);
+	par->ray = malloc(sizeof(t_ray) * 1);
+	par->key = malloc(sizeof(t_key) * 1);
+	par->ps = malloc(sizeof(t_ps) * 1);
+	par->mlx_id = mlx_init();
+	if (!par->ray)
+		ft_quit("Failed ray struct malloc. \n", par);
+	if (!par->key)
+		ft_quit("Failed key struct malloc. \n", par);
+	if (!par->ps)
+		ft_quit("Failed ps struct malloc. \n", par);
 	ft_dlft_key(par->key);
 	ft_dflt_ray_data(par->ray);
 	par->ray->zbuffer = NULL;
-	if (!(par->mlx_id = mlx_init()))
-		ft_quit("Failed to init mlx_id", par);
+	if (!par->mlx_id)
+		ft_quit("Failed to init mlx_id. \n", par);
 	par->no_text = ft_init_text();
 	par->so_text = ft_init_text();
 	par->ea_text = ft_init_text();

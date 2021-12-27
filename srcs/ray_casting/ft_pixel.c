@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:53:13 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:53:14 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:38:32 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:19:37 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_frame_pixel(t_params *par, int x, int y, int color)
 	char	*dst;
 
 	dst = par->addr + (y * par->line_length + x * (par->bpp / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	ft_trace_line(t_params *par, int x, int y, int color)
@@ -29,16 +29,16 @@ void	ft_trace_line(t_params *par, int x, int y, int color)
 		ft_frame_pixel(par, i++, y, color);
 }
 
-int		ft_rgb(int t, int r, int g, int b)
+int	ft_rgb(int t, int r, int g, int b)
 {
 	return (t << 24 | r << 16 | g << 8 | b);
 }
 
 void	ft_cast_flcl(t_params *par)
 {
-	int fl;
-	int cl;
-	int y;
+	int		fl;
+	int		cl;
+	int		y;
 
 	y = 0;
 	fl = ft_rgb(0, par->fl_color[0], par->fl_color[1], par->fl_color[2]);

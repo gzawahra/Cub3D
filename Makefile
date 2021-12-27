@@ -15,7 +15,6 @@ SRCS =	./main.c\
 		srcs/ray_casting/ft_pixel.c\
 		srcs/ft_init.c \
 		srcs/ft_exit.c\
-		srcs/ft_screenshot.c\
 		srcs/ft_no_leaks.c\
 		srcs/event/ft_keys_init_utils.c\
 		srcs/event/ft_keys_init.c\

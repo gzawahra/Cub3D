@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:48:20 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:48:22 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:44:02 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:47:34 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int size;
+	int		size;
 
 	size = 0;
 	while (lst)

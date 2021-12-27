@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:50:45 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:50:46 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:35:29 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:15:39 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_sprites(t_sprite *sprite)
 {
-	t_sprite *tmp;
+	t_sprite	*tmp;
 
 	tmp = sprite;
 	if (tmp && tmp->next)
@@ -24,7 +24,7 @@ void	free_sprites(t_sprite *sprite)
 
 void	free_map(t_params *par)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i < par->m_size)

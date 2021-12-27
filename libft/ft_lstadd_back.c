@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:47:20 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:47:25 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:42:18 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 01:45:33 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstadd_back(t_list **begin_list, void *data)
+void	ft_lstadd_back(t_list **begin_list, void *data)
 {
 	t_list		*tmp;
 

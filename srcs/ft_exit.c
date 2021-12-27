@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:50:31 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:50:32 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:35:15 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:15:11 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_free_all(t_params *par)
 		free(par->ceil_color);
 }
 
-int		ft_clear(t_params *par)
+int	ft_clear(t_params *par)
 {
 	if (par->we_text && par->we_text->text_id)
 		mlx_destroy_image(par->mlx_id, par->we_text->text_id);
@@ -57,12 +57,12 @@ int		ft_clear(t_params *par)
 
 void	ft_error_display(char *msg)
 {
-	int len;
+	int		len;
 
 	len = ft_strlen(msg);
 	if (!msg)
 		return ;
-	write(2, "Error\n", 6);
+	write(2, "Error :  \n", 6);
 	write(2, msg, len);
 }
 

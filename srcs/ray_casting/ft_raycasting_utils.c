@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gizawahr <gizawahr@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 05:53:22 by gizawahr          #+#    #+#             */
-/*   Updated: 2021/12/24 05:53:23 by gizawahr         ###   ########.fr       */
+/*   Created: 2021/12/27 01:38:44 by gizawahr          #+#    #+#             */
+/*   Updated: 2021/12/27 02:30:20 by gizawahr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub.h"
 
-t_text	*wich_text(int side, t_params *par)
+/*
+get texture from orientation
+*/
+t_text	*which_text(int side, t_params *par)
 {
 	t_text	*tex;
 
@@ -27,6 +30,9 @@ t_text	*wich_text(int side, t_params *par)
 	return (tex);
 }
 
+/*
+get player distance to wall
+*/
 void	get_wall_dist(t_ray *ray)
 {
 	if (ray->side == NO || ray->side == SO)
@@ -37,14 +43,17 @@ void	get_wall_dist(t_ray *ray)
 				(1 - ray->step_y) / 2) / ray->ray_dir_y;
 }
 
-int		ft_get_pixel(t_text *f, int x, int y)
+int	ft_get_pixel(t_text *f, int x, int y)
 {
 	char	*dst;
 
-	dst = (char*)f->text_img + (y * f->size + x * (f->bpp / 8));
-	return (*(unsigned int*)dst);
+	dst = (char *)f->text_img + (y * f->size + x * (f->bpp / 8));
+	return (*(unsigned int *)dst);
 }
 
+/*
+step ray according to direction
+*/
 void	ft_step(t_ray *ray)
 {
 	if (ray->ray_dir_x < 0)
