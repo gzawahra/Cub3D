@@ -1,5 +1,5 @@
 R 1920 1080
-NO ./textures/mossy.xpm
+NO ./textures/cobble_stone.xpm
 SO ./textures/mossy.xpm
 WE ./textures/mossy.xpm
 EA ./textures/mossy.xpm

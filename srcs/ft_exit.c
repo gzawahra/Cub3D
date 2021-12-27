@@ -62,7 +62,7 @@ void	ft_error_display(char *msg)
 	len = ft_strlen(msg);
 	if (!msg)
 		return ;
-	write(2, "Error :  \n", 6);
+	write(2, "Error : \n", 10);
 	write(2, msg, len);
 }
 
