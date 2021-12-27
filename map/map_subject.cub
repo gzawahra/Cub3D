@@ -1,8 +1,8 @@
-R 800 600
-NO ./textures/colorstone.xpm
-SO ./textures/greystone.xpm
+R 1920 1080
+NO ./textures/mossy.xpm
+SO ./textures/mossy.xpm
 WE ./textures/mossy.xpm
-EA ./textures/wood.xpm
+EA ./textures/mossy.xpm
 S ./textures/chest.xpm
 F 220,100,0
 C 225,30,0
